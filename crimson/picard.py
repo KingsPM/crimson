@@ -53,7 +53,7 @@ def parse_header(header):
 
     """
     parsed = [_RE_HEADER.sub("", x) for x in header.split(os.linesep)]
-    if len(parsed) != 4:
+    if len(parsed) not in [4,3]:
         raise ValueError("Unexpected Picard header.")
 
     return {"flags": parsed[1], "time": parsed[3]}
